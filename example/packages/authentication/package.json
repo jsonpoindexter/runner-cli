@@ -1,0 +1,11 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"You ran Authentication TEST\""
+  },
+  "author": "",
+  "license": "ISC"
+}
