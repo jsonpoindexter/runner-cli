@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "test": "echo \"You ran Accounts TEST\""
-
+      "test": "echo \"You ran Accounts TEST\"",
+      "build": "echo \"You ran Accounts BUILD\""
   },
   "author": "",
   "license": "ISC"
