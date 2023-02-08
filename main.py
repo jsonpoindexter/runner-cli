@@ -42,8 +42,8 @@ def parse_package_scripts():
 
 class RunnerCli(cmd.Cmd):
 
-    def do_greet(self, line):
-        print("hello")
+    def preloop(self):
+        self.do_help("")
 
     def do_EOF(self, line):
         return True
@@ -53,20 +53,23 @@ if __name__ == '__main__':
 
     # print(scripts_dict)
     for package_name, package_scripts_dict in scripts_dict.items():
-        print(package_name, package_scripts_dict)
-
-
-        main_method_name = f"do_{package_name}" # Create method name. ie: do_accounts
+        # Create method ie: do_accounts
+        main_method_name = f"do_{package_name}"
         script_names = list(package_scripts_dict.keys())
-        print(script_names)
         exec_string = f"def {main_method_name}(self, script_name): \n \
+            \t\"\"\"{package_name} [script]\n \
+            Execute {package_name} script: {script_names}\"\"\"\n \
             \tif script_name and script_name in {script_names}:\n \
-                \t\tprint('run')"
+                \t\tcommand = f'cd ./packages/{package_name} && yarn run {{script_name}}'\n \
+                \t\tprint(command)\n \
+                \t\tresult = subprocess.run(command,stdout=subprocess.PIPE, cwd='{working_directory}',shell=True)\n \
+                \t\tprint(result.stdout.decode('utf-8')) \
+        "
         exec(exec_string) # Create do_*main_method_name* cmd command
         main_method = locals()[main_method_name]
         setattr(RunnerCli, main_method_name, main_method)
-        # print(main_method_name)
-        
+
+        # Create auto-completion for main method ie: complete_accounts
         complete_method_name = f"complete_{package_name}"
         exec_string = f"def {complete_method_name}(self, text, line, begidx, endidx):\n \
             \tif not text:\n \
@@ -80,5 +83,6 @@ if __name__ == '__main__':
         exec(exec_string)  # Create do_*main_method_name* cmd command
         complete_method = locals()[complete_method_name]
         setattr(RunnerCli, complete_method_name, complete_method)
+
     RunnerCli().cmdloop()
 
