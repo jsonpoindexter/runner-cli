@@ -48,8 +48,6 @@ class RunnerCli(cmd.Cmd):
     def preloop(self):
         self.do_help("")
 
-    def do_EOF(self, line):
-        return True
 
 def main():
     scripts_dict = parse_package_scripts()
@@ -76,7 +74,6 @@ def main():
         # Create auto-completion for main method ie: complete_accounts
         complete_method_name = f"complete_{package_name}"
         exec_string = f"def {complete_method_name}(self, text, line, begidx, endidx):\n \
-              \tprint('Complete')\n \
               \tif not text:\n \
                   \t\tcompletions = {script_names}[:]\n \
               \telse:\n \
