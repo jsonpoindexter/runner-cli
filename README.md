@@ -2,6 +2,10 @@
 
 A command-line interface (CLI) tool to execute scripts defined in ```package.json``` files within your project's packages. This tool simplifies running package scripts by providing an interactive shell with auto-completion features.
 
+
+![Nov-29-2024 10-08-36](https://github.com/user-attachments/assets/c1ff2c2b-db8f-4d07-bfc2-b045deef2282)
+
+
 ## Features
 
 - **Interactive CLI**: Navigate and execute scripts using a simple command-line interface.
