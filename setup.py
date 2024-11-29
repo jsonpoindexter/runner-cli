@@ -7,7 +7,7 @@ setuptools.setup(
     name="runner-cli-pkg-jsonpoindexter",
     version="0.0.1",
     author="Jason Poindexter",
-    author_email="jason.poindexter@lifescoremusic.com",
+    author_email="poindexter.json@gmail.com",
     description="Run package scripts",
     # long_description=long_description,
     # long_description_content_type="text/markdown",
