@@ -11,7 +11,6 @@ setuptools.setup(
     description="Run package scripts",
     # long_description=long_description,
     # long_description_content_type="text/markdown",
-    # url="https://github.com/jsonpoindexter/uSerialSync",
     # packages=setuptools.find_packages(),
     packages=['runner_cli'],
     scripts=['bin/runner_cli'],
